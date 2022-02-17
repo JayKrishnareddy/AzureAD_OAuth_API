@@ -23,6 +23,7 @@ namespace AzureAD_OAuth_API.Controllers
 
         // The Web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
         static readonly string[] scopeRequiredByApi = new string[] { "ReadWriteAccess" };
+        const string AccessAsUserRole = "access_as_user";
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
@@ -42,6 +43,14 @@ namespace AzureAD_OAuth_API.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet]
+        [Route("/User")]
+        [Authorize(Roles = AccessAsUserRole)]
+        public string GetUser()
+        {
+            return User.FindFirst("Name").Value ?? "NoIdentity";
         }
     }
 }
