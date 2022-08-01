@@ -19,3 +19,5 @@
 If you want to learn more about this Article 👇🏻
 
 [**C# Corner**](https://www.c-sharpcorner.com/article/enable-oauth-2-authorization-using-azure-ad-and-swagger-in-net-5-0/ "C# Corner")
+
+If you liked the repo then kindly support it by giving it a star ⭐
